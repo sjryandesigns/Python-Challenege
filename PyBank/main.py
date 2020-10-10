@@ -21,16 +21,33 @@ def budget_analysis(budget_data):
     # Cast values in profits list as integers
     profits=[int(i) for i in profits]
 
-    # Definte and calculate net profit and total months
+    # Define and calculate net profit and total months
     net_profit = sum(profits)
     total_months = len(dates)
 
-    # Calculate to find average of profit changes
-    for rows in profits:
-        prft_change = int(profits[rows+1] - int(profits[rows])
-        profit_changes.append(prft_change)
+    # Average of profit changes
 
-    avg_change = round(sum(profit_changes,2))
+    #Grab first value of list and store in variable previous
+    #start looping on second row
+    #calc diff between current loop & prev
+    #update previous to current
+    prev_profit=profits[0]
+
+    for i in range(1, len(profits)):
+        prft_change=profits[i] - prev_profit 
+        profit_changes.append(prft_change) 
+        prev_profit=profits[i]
+
+
+        # print(profit_changes)
+        
+        # prft_change = int(profits[rows+1]) - int(profits[rows])
+        # profit_changes.append(prft_change)
+
+    length = len(profit_changes)
+    add = sum(profit_changes)
+    avg_change = round(add / length,2)
+    # print(avg_change)
 
 
     # # Loop to find row with largest profit value 
