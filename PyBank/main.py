@@ -9,32 +9,27 @@ budget_csv = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.c
 def budget_analysis(budget_data):
     
     date = str(budget_data[0])
-    profit = float(budget_data[1])
+    profit = budget_data[1]
+    next_profit = next(profit)
 
     total_months = len(date)
     net_profit = sum(profit)
-    avg_change = net_profit / total_months
-
-    for rows in budget_data
-        if profit > next(profit)
-            increase_total = profit
-            increase_date = date
-        if profit > next(profit)
-            decrease_total = profit
-            decrease_date = date
-
-            
-
-
-
+    avg_change = (net_profit / total_months)
     
-    
+    if profit > next_profit:
+        increase_total = profit
+        increase_date = date
+    if profit > next_profit:
+        decrease_total = profit
+        decrease_date = date
+
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {str(total_months)}")
     print(f"Total: {str(net_profit)}")
     print(f"Average Change: {str(avg_change)}")
-   
+    print(f"Greatest Increase in Profits: {increase_date} {str((increase_total))}")
+    print(f"Greatest Decrease in Profits: {decrease_date} {str((decrease_total))}")
 
         
 
@@ -46,8 +41,8 @@ with open(budget_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
 
     # Read the header row first 
-    csv_header = next(csv_file)
+    header = next(csv_file)
     
     #Read each row of data after header
-    for row in csv_reader:
-       budget_analysis(budget_data)
+    for rows in csv_reader:
+        budget_analysis(budget_csv)
