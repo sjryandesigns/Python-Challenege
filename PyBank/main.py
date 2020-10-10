@@ -11,9 +11,10 @@ def budget_analysis(budget_data):
     # Create lists for dates and profits (data columns on csv file)
     dates = []
     profits = []
+    profit_change = []
 
     # Loop through csv file and add dates to dates list, profits to profits list     
-    for date, profit in csv_reader
+    for date, profit in csv_reader:
         dates.append(date)
         profits.append(profit)
 
@@ -24,23 +25,26 @@ def budget_analysis(budget_data):
     net_profit = sum(profits)
     total_months = len(dates)
 
-    # Calculate to find average profit change, round to two decimals
-    avg_change = round((net_profit / total_months), 2)
+    # Calculate to find average profit change
+   for rows in csv_reader:
+       
 
-    # Loop to find row with largest profit value 
-    prev_profit= 0
-    increase_date=""
-    increase_total=0
-    # decrease_date=""
-    # decrease_total= 0 
 
-    for row in csv_reader:
+
+    # # Loop to find row with largest profit value 
+    # prev_profit= 0
+    # increase_date=""
+    # increase_total=0
+    # # decrease_date=""
+    # # decrease_total= 0 
+
+    # for row in csv_reader:
                
-        if int(row[1]) >= int(prev_profit):
-            increase_date == row[0]
-            increase_total == row[1]
+    #     if int(row[1]) >= prev_profit:
+    #         increase_date == str(row[0])
+    #         increase_total == int(row[1])
 
-        prev_profit == int(row[1])
+    #     prev_profit == int(row[1])
 
         # if int(row[1]) < prev_profit:
         #     decrease_date== str(row[0])
@@ -52,9 +56,11 @@ def budget_analysis(budget_data):
     print("----------------------------")
     print(f"Total Months: {total_months}")
     print(f"Total: {net_profit}")
-    print(f"Average Change: ${avg_change}")
-    print(f'{increase_date}')
-    print(f'{increase_total}')
+    # print(f"Average Change: ${avg_change}")
+    # print(f'{increase_date}')
+    # print(f'{increase_total}')
+    # print(f'{decrease_date}')
+    # print(f'{decrease_total}')
     # print(f"Greatest Increase in Profits: {increase_date} + {increase_total}")
     # print(f"Greatest Decrease in Profits: {decrease_date} -({increase_total})")
 
@@ -69,3 +75,13 @@ with open(budget_csv) as csv_file:
 
     # Run function on budget csv file    
     budget_analysis(budget_csv)
+
+
+    # #this works
+    # increase_total = max(profits)
+    # increase_pos = profits.index(increase_total)
+    # increase_date = dates[increase_pos]
+
+    # decrease_total = min(profits)
+    # decrease_pos = profits.index(decrease_total)
+    # decrease_date = dates[decrease_pos]
