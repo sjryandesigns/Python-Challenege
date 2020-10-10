@@ -15,12 +15,7 @@ with open(poll_csv) as csv_file:
     header = next(csv_file)
     
     #Read each row of data after header
-    results={
-        "VoterID":
-        "County":
-        "Candidate":
-    }
-
+    
     print("Election Results")
     print("-------------------------")
     
