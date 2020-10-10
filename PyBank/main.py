@@ -8,6 +8,12 @@ budget_csv = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.c
 
 def budget_analysis(budget_data):
     
+    prev_profit=0
+    increase_date=0
+    increase_total= 0 
+    decrease_date=0
+    decrease_total= 0 
+
     date = []
     profit = []
          
@@ -22,31 +28,27 @@ def budget_analysis(budget_data):
    
     avg_change = round((net_profit / total_months), 2)
      
-    prev_profit=0
-    increase_date=""
-    increase_total=0 
+    
 
-    for rows in csv_reader:
+    for row in csv_reader:
                
-        if profit[rows] >= prev_profit:
-            increase_date = date[rows]
-            increase_total = profit[rows]
-            prev_profit = profit[rows]
+        if int(row[1]) >= prev_profit:
+            increase_date == str(row[0])
+            increase_total == int(row[1])
+            prev_profit == int(row[1])
 
-        # if current_profit < prev_profit:
-        #     decrease_date= str(rows[0])
-        #     decrease_total = int(rows[1])
-        #     prev_profit = current_profit
+        if int(row[1]) < prev_profit:
+            decrease_date== str(row[0])
+            decrease_total == int(row[1])
+            prev_profit == int(row[1])
 
     print("Financial Analysis")
     print("----------------------------")
     print(f"Total Months: {total_months}")
     print(f"Total: {net_profit}")
     print(f"Average Change: ${avg_change}")
-    print(f'{highest}')
-    print(f'{highname}')
-    # print(f'{increase_date}')
-    # print(f'{increase_total}')
+    print(f'{increase_date}')
+    print(f'{increase_total}')
     # print(f"Greatest Increase in Profits: {increase_date} + {increase_total}")
     # print(f"Greatest Decrease in Profits: {decrease_date} -({increase_total})")
 
