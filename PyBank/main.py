@@ -11,7 +11,7 @@ def budget_analysis(budget_data):
     # Create lists for dates and profits (data columns on csv file)
     dates = []
     profits = []
-    profit_change = []
+    profit_changes = []
 
     # Loop through csv file and add dates to dates list, profits to profits list     
     for date, profit in csv_reader:
@@ -25,10 +25,12 @@ def budget_analysis(budget_data):
     net_profit = sum(profits)
     total_months = len(dates)
 
-    # Calculate to find average profit change
-   for rows in csv_reader:
-       
+    # Calculate to find average of profit changes
+    for rows in profits:
+        prft_change = int(profits[rows+1] - int(profits[rows])
+        profit_changes.append(prft_change)
 
+    avg_change = round(sum(profit_changes,2))
 
 
     # # Loop to find row with largest profit value 
@@ -56,7 +58,7 @@ def budget_analysis(budget_data):
     print("----------------------------")
     print(f"Total Months: {total_months}")
     print(f"Total: {net_profit}")
-    # print(f"Average Change: ${avg_change}")
+    print(f"Average Change: ${avg_change}")
     # print(f'{increase_date}')
     # print(f'{increase_total}')
     # print(f'{decrease_date}')
