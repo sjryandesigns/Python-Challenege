@@ -8,31 +8,46 @@ budget_csv = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.c
 
 def budget_analysis(budget_data):
     
-    date = str(budget_data[0])
-    # profit = int(budget_data[1])
-    # next_profit=0
-    
+    date = []
+    profit = []
+         
+    for a, b in csv.reader(csv_file, delimiter=','):
+        date.append(a)
+        profit.append(b)
 
-    total_months = len(budget_data[0])
-    # net_profit = sum(profit)
-    # avg_change = (net_profit / total_months)
-    
-    # for rows in csv_reader:
-       
-    #     if profit > next_profit:
-    #         increase_total = profit
-    #         increase_date = date
-    #     if profit > next_profit:
-    #         decrease_total = profit
-    #         decrease_date = date
+    profit=[int(i) for i in profit]
+
+    net_profit = sum(profit)
+    total_months = len(date)
+   
+    avg_change = round((net_profit / total_months), 2)
+     
+    prev_profit=0
+    increase_date=""
+    increase_total=0 
+
+    for rows in csv_reader:
+               
+        if profit[rows] >= prev_profit:
+            increase_date = date[rows]
+            increase_total = profit[rows]
+            prev_profit = profit[rows]
+
+        # if current_profit < prev_profit:
+        #     decrease_date= str(rows[0])
+        #     decrease_total = int(rows[1])
+        #     prev_profit = current_profit
 
     print("Financial Analysis")
     print("----------------------------")
-    print(f'{date}')
     print(f"Total Months: {total_months}")
-    # print(f"Total: {net_profit}")
-    # # print(f"Average Change: {avg_change}")
-    # print("Greatest Increase in Profits: " + str(increase_total) + str(increase_profit))
+    print(f"Total: {net_profit}")
+    print(f"Average Change: ${avg_change}")
+    print(f'{highest}')
+    print(f'{highname}')
+    # print(f'{increase_date}')
+    # print(f'{increase_total}')
+    # print(f"Greatest Increase in Profits: {increase_date} + {increase_total}")
     # print(f"Greatest Decrease in Profits: {decrease_date} -({increase_total})")
 
 # Open and read csv
@@ -47,8 +62,8 @@ with open(budget_csv) as csv_file:
 
 #     #Read each row of data after header
 #     for rows in csv_reader:
-#         date = budget_csv[0]
-#         profit = budget_csv[1]
+#         date = str(budget_csv[0])
+#         profit = int(budget_csv[1])
 #         max_increase = 0
 #         max_decrease = 0
 
