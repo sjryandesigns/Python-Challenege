@@ -16,11 +16,11 @@ with open(poll_csv) as csv_file:
     
     #Read each row of data after header
     results={
-        "VoterID":poll_csv[0], 
-        "County":poll_csv[1],
-        "Candidate":poll_csv[2]
+        "VoterID":
+        "County":
+        "Candidate":
     }
 
     print("Election Results")
     print("-------------------------")
-    print(f'"Total Votes: "+{results(len(["VoterID"]))}')
+    
