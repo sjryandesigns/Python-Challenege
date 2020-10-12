@@ -81,23 +81,14 @@ with open(budget_csv) as csv_file:
 
 
 
-    # # Loop to find row with largest profit value 
-    # prev_profit= 0
-    # increase_date=""
-    # increase_total=0
-    # # decrease_date=""
-    # # decrease_total= 0 
+    # output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financal_analysis.csv")
+    # with open(output_path, 'w') as csvfile:
+    #     csvwriter = csv.writer(csvfile, delimiter=',')
+    #     csvwriter.writerow(["Financial Analysis"])
 
-    # for row in csv_reader:
-               
-    #     if int(row[1]) >= prev_profit:
-    #         increase_date == str(row[0])
-    #         increase_total == int(row[1])
-
-    #     prev_profit == int(row[1])
-
-        # if int(row[1]) < prev_profit:
-        #     decrease_date== str(row[0])
-        #     decrease_total == int(row[1])
-        #     prev_profit == int(row[1])
-
+    #     csvwriter.writerow(["----------------------------"])
+    #     csvwriter.writerow([f"Total Months: {total_months}"])
+    #     csvwriter.writerow([f"Total: {net_profit}"])
+    #     csvwriter.writerow([f"Average Change: ${avg_change}"])
+    #     csvwriter.writerow([f"Greatest Increase in Profits: {increase_date} + {increase_total}"])
+    #     csvwriter.writerow([f"Greatest Decrease in Profits: {decrease_date} -({decrease_total})"])
