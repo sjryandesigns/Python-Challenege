@@ -26,10 +26,10 @@ with open(poll_csv) as csv_file:
         #Adding all candidates per row to list, with duplicates
         all_candidates_w_dup.append(rows[2])
 
-        #Conditional: If candidate is not currently in dictionary, add and give +1 to value
-        if candidate_totals.get(rows[]):
+        #Conditional: If candidate is currently in dictionary, add +1 to value
+        if candidate_totals.get(rows[2]):
             candidate_totals[rows[2]]+=1
-        #Conditional Cont: If candidate is currently in dictionary, just add 1 to value
+        #Conditional Cont: If candidate is not currently in dictionary, add to dictionary and add 1 to value
         else:
             candidate_totals[rows[2]]=1
         
