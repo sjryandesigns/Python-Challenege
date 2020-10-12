@@ -1,8 +1,8 @@
-#Import modules os to create file paths and csv to read CSV files
+# Import modules os to create file paths and csv to read CSV files
 import os
 import csv
 
-#Create file path to csv source file
+# Create file path to csv source file
 budget_csv = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.csv")
 
 # Set destination path for csv file to be created
@@ -11,7 +11,7 @@ output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financal_analy
 # Open and read csv
 with open(budget_csv) as csv_file:
 
-    #Specify delimiter and variable that holds contents
+    # Specify delimiter and variable that holds contents
     csv_reader = csv.reader(csv_file, delimiter=",")
 
     # Read the header row first 
@@ -25,7 +25,7 @@ with open(budget_csv) as csv_file:
     profitloss= []
     prev_profit=0
 
-    #Loop through rows in csv file
+    # Loop through rows in csv file
     for row in csv_reader:
         # Add to date counter and profit/loss value to running total counter
         dates += 1
@@ -44,7 +44,7 @@ with open(budget_csv) as csv_file:
         # Update previous profit variable with current row profit/loss for next loop iteration
         prev_profit=int(row[1])
     
-    #Calculate the sum and count of values in profit change list, then find average change with 2 decimals
+    # Calculate the sum and count of values in profit change list, then find average change with 2 decimals
     change_len = len(profit_changes)
     change_add = sum(profit_changes)
     avg_change = round(change_add / change_len,2)
