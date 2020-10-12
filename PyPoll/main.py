@@ -5,6 +5,9 @@ import csv
 #Create file path to csv source file
 poll_csv = os.path.join(os.path.dirname(__file__), "Resources", "election_data.csv")
 
+# Set destination path for csv file to be created
+output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financal_analysis.csv")
+
 
 # Open and read csv
 with open(poll_csv) as csv_file:
@@ -34,11 +37,41 @@ with open(poll_csv) as csv_file:
             candidate_totals[rows[2]]=1
         
 
-    
-    # print("Election Results")
-    # print("-------------------------")
-    # print(f"Total Votes: {total_votes}")
-    for candidate in candidate_totals:
-        print(str(candidate)) + str(round())
+    # Print election results for summary table
+    print("Election Results")
+    print("-------------------------")
 
+    # Print count of total votes taken during loop
+    print(f"Total Votes: {total_votes}")
+    print("-------------------------")
+
+    # Loop through candidate totals dictionary to print a row for each candidate
+    for candidate in candidate_totals:
+
+        # Print candidate name, the percentage of votes received out of total, and the number of votes received
+
+        # print(f'{candidate}: '+ (round((({candidate_totals[candidate]}/total_votes)*100),3))+'% ' +{candidate_totals[candidate]})
+        print(candidate + ": " + str(round(((candidate_totals[candidate]/total_votes)*100),3)) + "%" + " (" + str(candidate_totals[candidate]) + ")")
+        
+    print("-------------------------")
+
+    # print("Winner: " +str(list(candidate_totals.keys())[list(candidate_totals.values()).index(max(listVotes))]))
     
+    # Create and define winner as name from all candidate list that occurs the most times
+    winner = max(set(all_candidates_w_dup), key = all_candidates_w_dup.count)
+
+    # Print winner name to summary table
+    print("Winner: " +str(winner))
+    print("-------------------------")
+
+with open(output_path, 'w') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=',')
+    csvwriter.writerow(["Election Results"])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow([f"Total Votes: {total_votes}"])
+    csvwriter.writerow(["-------------------------"])
+    for candidate in candidate_totals:
+        csvwriter.writerow([candidate + ": " + str(round(((candidate_totals[candidate]/total_votes)*100),3)) + "%" + " (" + str(candidate_totals[candidate]) + ")"])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow(["Winner: " +str(winner)])
+    csvwriter.writerow(["-------------------------"])
