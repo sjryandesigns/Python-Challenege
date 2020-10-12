@@ -17,19 +17,22 @@ with open(poll_csv) as csv_file:
     total_votes = 0
     all_candidates_w_dup = []
     candidate_totals = {}
-
+    #Looping through data
     for rows in csv_reader:
-        total_votes += 1
 
+        #Adding one each row to get total votes    
+        total_votes += 1
+        
+        #Adding all candidates per row to list, with duplicates
         all_candidates_w_dup.append(rows[2])
 
-        if candidate_totals.get(rows[2]):
+        #Conditional: If candidate is not currently in dictionary, add and give +1 to value
+        if candidate_totals.get(rows[]):
             candidate_totals[rows[2]]+=1
+        #Conditional Cont: If candidate is currently in dictionary, just add 1 to value
         else:
             candidate_totals[rows[2]]=1
         
-
-    print(candidates_totals)
 
     
     # print("Election Results")
