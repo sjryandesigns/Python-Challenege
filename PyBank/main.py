@@ -5,6 +5,9 @@ import csv
 #Create file path to csv source file
 budget_csv = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.csv")
 
+# Set destination path for csv file to be created
+output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financal_analysis.csv")
+
 # Open and read csv
 with open(budget_csv) as csv_file:
 
@@ -64,9 +67,6 @@ with open(budget_csv) as csv_file:
     print(f"Average Change: ${avg_change}")
     print(f"Greatest Increase in Profits: {increase_date} (${increase_total})")
     print(f"Greatest Decrease in Profits: {decrease_date} (${decrease_total})")
-
-# Set destination path for csv file to be created
-output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financal_analysis.csv")
 
 # Write the following rows to the csv file    
 with open(output_path, 'w') as csvfile:
