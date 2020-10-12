@@ -54,7 +54,9 @@ with open(poll_csv) as csv_file:
     #     #  # print(f'{candidate}: '+ (round((({candidate_totals[candidate]}/total_votes)*100),3))+'% ' +{candidate_totals[candidate]})
     #     # print(candidate + ": " + str(round(((candidate_totals[candidate]/total_votes)*100),3)) + "%" + " (" + str(candidate_totals[candidate]) + ")")
     # print(candidate_totals[0[0]] + ": " + int(round(((candidate_totals[0[1]]/total_votes)*100),3)) + "%" + " (" + str(candidate_totals[0[1]]) + ")") 
-    print([key for key in candidate_totals.keys()][0],": ", str(round((([value for value in candidate_totals.values()][0]/total_votes)*100),3)),"% ", [value for value in candidate_totals.values()][0]) 
+    # print([key for key in candidate_totals.keys()][0],": ", str(round((([value for value in candidate_totals.values()][0]/total_votes)*100),3)),"% ", [value for value in candidate_totals.values()][0]) 
+
+    # print(', '.join(str(key) + ', ' + str(value) for key, value in candidate_totals.items())) 
     # print([key for key in candidate_totals.keys()][1], [value for value in candidate_totals.values()][1])
     # print(([key for key in candidate_totals.keys()][2], [value for value in candidate_totals.values()][2]))    
     # print(([key for key in candidate_totals.keys()][3], [value for value in candidate_totals.values()][3])) 
