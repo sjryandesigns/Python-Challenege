@@ -6,7 +6,7 @@ import csv
 budget_csv = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.csv")
 
 # Set destination path for csv file to be created
-output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financal_analysis.csv")
+output_path = os.path.join(os.path.dirname(__file__),"Analysis", "financial_analysis.csv")
 
 # Open and read csv
 with open(budget_csv) as csv_file:
