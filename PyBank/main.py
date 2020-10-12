@@ -31,23 +31,22 @@ def budget_analysis(budget_data):
     #start looping on second row
     #calc diff between current loop & prev
     #update previous to current
+    #Set value for first value in profits for use in loop
     prev_profit=profits[0]
 
+    #Loop through profits from second value to end of list
     for i in range(1, len(profits)):
-        prft_change=profits[i] - prev_profit 
+        #Calculate and record different between profit values of current loop and previous loop
+        prft_change=profits[i] - prev_profit
+        #Add differences from above into list of profit changes 
         profit_changes.append(prft_change) 
+        #Update previous profit value with current profit value for next loop iteration
         prev_profit=profits[i]
 
-
-        # print(profit_changes)
-        
-        # prft_change = int(profits[rows+1]) - int(profits[rows])
-        # profit_changes.append(prft_change)
-
-    length = len(profit_changes)
-    add = sum(profit_changes)
-    avg_change = round(add / length,2)
-    # print(avg_change)
+    change_len = len(profit_changes)
+    change_add = sum(profit_changes)
+    avg_change = round(change_add / change_len,2)
+    
 
 
     # # Loop to find row with largest profit value 
